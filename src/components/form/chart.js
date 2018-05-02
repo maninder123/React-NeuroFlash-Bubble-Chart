@@ -56,26 +56,26 @@ export class Bubblechart extends Component {
             .pack()
             .size([diameter - 4, diameter - 4]);
 // Handling data to create child parent combinations based on their Ranks...
-// var root = this.props.data;
-// var dataToShow = [];
-// var formattedData = [];
-// root.map(function (v, k) {
-//     dataToShow.push({
-//         "name": v.word,
-//         "size": v.quartile_rank,
-//         "score": v.quartile_score
-//     });
-// })
+var root = this.props.data;
+var dataToShow = [];
+var formattedData = [];
+root.map(function (v, k) {
+    dataToShow.push({
+        "name": v.word,
+        "size": v.quartile_rank,
+        "score": v.quartile_score
+    });
+})
 
-// var nested_data = d3.nest()
-// .key(function (d) {
-//     return d.score;
-// })
-// .entries(dataToShow);
+var nested_data = d3.nest()
+.key(function (d) {
+    return d.score;
+})
+.entries(dataToShow);
 
-// nested_data.map(function (v, k) {
-//     formattedData.push({"name": v.key, "children": v.values})
-// })
+nested_data.map(function (v, k) {
+    formattedData.push({"name": v.key, "children": v.values})
+})
 var arr = formattedData.sort(function (a, b) {
     return b.value - a.value;
 });
